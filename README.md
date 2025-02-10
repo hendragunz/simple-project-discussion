@@ -21,6 +21,11 @@ The password should be "password", as simple as that :-)
 <img width="1268" alt="Screenshot 2025-02-10 at 23 18 10" src="https://github.com/user-attachments/assets/b36ebd75-ffcf-4428-9be3-a7e45353ba9e" />
 
 
-# Demo App
-[https://project-discussion-815d000987d5.herokuapp.com/](https://project-discussion-815d000987d5.herokuapp.com/)
+# Setup Local
+- ruby 3.3.7
+- bundle install
+- setup database (primary using postgres, cache + queue + cable using sqlite3)
+- run `rails db:fixtures:load`, please check fixtures.yml for dummy data
+- next you can login and try to add some comment to the project like screenshot above
+- please try with 2 - 3 different browser to see realtime project discussion 
 
