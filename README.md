@@ -24,24 +24,3 @@ The password should be "password", as simple as that :-)
 # Demo App
 [https://project-discussion-815d000987d5.herokuapp.com/](https://project-discussion-815d000987d5.herokuapp.com/)
 
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
