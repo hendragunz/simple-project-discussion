@@ -1,0 +1,3 @@
+<%= turbo_stream.replace("project-#{dom_id(@project)}") do %>
+  <%= render 'projects/project_detail', project: @project %>
+<% end %>

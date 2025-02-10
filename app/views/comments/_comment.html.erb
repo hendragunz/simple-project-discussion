@@ -1,0 +1,10 @@
+<div id="<%= dom_id comment %>" class="border-dashed border-b-1">
+  <p class="my-5">
+    <strong class="font-medium mb-1">User: &nbsp;</strong>
+    <%= comment.user.email_address %>
+  </p>
+
+  <p class="my-5">
+    <%= comment.message %>
+  </p>
+</div>

@@ -1,0 +1,31 @@
+<% content_for :title, "Showing project" %>
+
+<div class="md:w-1/2 w-full p-2">
+  <% if notice.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <h1 class="font-bold text-4xl">Showing project</h1>
+
+  <%= render 'project_detail', project: @project %>
+</div>
+
+
+<div class="md:w-1/2 w-full p-2">
+  <h2>Discussion</h2>
+  <hr />
+
+  <%= turbo_stream_from @project, :comments %>
+
+  <div id="comments">
+    <% if @project.comments.present? %>
+    <% @project.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+    <% end %>
+    <% else %>
+    <p id="no-comment">No comment yet!</p>
+    <% end %>
+  </div>
+
+  <%= render 'comments/form', project: @project, comment: Comment.new %>
+</div>
