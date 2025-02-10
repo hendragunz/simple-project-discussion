@@ -20,22 +20,27 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
+sqlite: &sqlite
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 10000
+
 development:
   primary:
     <<: *default
     database: project_discuss_development
   cache:
-    <<: *default
-    database: project_discuss_development_cache
-    migration_paths: db/cache_migrations
+    <<: *sqlite
+    database: solid/project_discuss_development_cache.sqlite3
+    migration_paths: db/cache_migrate
   queue:
-    <<: *default
-    database: project_discuss_development_queue
-    migration_paths: db/queue_migrations
+    <<: *sqlite
+    database: solid/project_discuss_development_queue.sqlite3
+    migration_paths: db/queue_migrate
   cable:
-    <<: *default
-    database: project_discuss_development_cable
-    migration_paths: db/cable_migrations
+    <<: *sqlite
+    database: solid/project_discuss_development_cable.sqlite3
+    migration_paths: db/cable_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -96,14 +101,14 @@ production:
     <<: *default
     url: <%= ENV['DATABASE_URL'] %>
   cache:
-    <<: *primary_production
-    url: <%= ENV['DATABASE_URL']&.+('_cache') %>
-    migration_paths: db/cache_migrations
+    <<: *sqlite
+    database: solid/project_discuss_production_cache.sqlite3
+    migration_paths: db/cache_migrate
   queue:
-    <<: *primary_production
-    url: <%= ENV['DATABASE_URL']&.+('_queue') %>
-    migration_paths: db/queue_migrations
+    <<: *sqlite
+    database: solid/project_discuss_production_queue.sqlite3
+    migration_paths: db/queue_migrate
   cable:
-    <<: *primary_production
-    url: <%= ENV['DATABASE_URL']&.+('_cable') %>
-    migration_paths: db/cable_migrations
+    <<: *sqlite
+    database: solid/project_discuss_production_cable.sqlite3
+    migration_paths: db/cable_migrate
